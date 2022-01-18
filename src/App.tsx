@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import GithubLogo from "/Users/bryangaray/Documents/GitHub/ReactMathApp/src/media/github logo.png";
-import LinkedInLogo from "/Users/bryangaray/Documents/GitHub/ReactMathApp/src/media/linkedIn logo.png";
+import GithubLogo from "./media/github logo.png";
+import LinkedInLogo from "./media/linkedIn logo.png";
 
 //interfaces:
 interface LinkedInProps {
