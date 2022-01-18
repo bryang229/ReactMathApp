@@ -1,0 +1,2 @@
+# ReactMathApp
+ This is an extension of my previous All Star Code project: MathWebApp1 (On GitHub). This updated version takes the one page app of MathWebApp and converts it into a TypeScript React app. Using a React Class Component for the main page it is now possible to quickly save time by just switching components depending on user input. The state also allows for improved and more secure management of scores. 
