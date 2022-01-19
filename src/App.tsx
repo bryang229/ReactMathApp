@@ -257,9 +257,45 @@ class WebApp extends React.Component<any, WebAppInter> {
          })
     }
 
-    NavBar = () => {
-        return (
-            <nav>
+
+
+
+    handleChange = (e: any) =>{
+        this.setState({
+            userInput: parseInt(e.target.value)
+        })
+    }
+
+    
+
+    clicked(mode: number) {
+        switch (mode) {
+            case 0:
+                this.easyMode();
+                break;
+            case 1:
+                this.mediumMode();
+                break;
+            case 2:
+                this.hardMode();
+                break;
+            default:
+                break;
+        }
+        this.setState({
+            mode: this.state.mode === 4 ? mode : 4
+        })
+    }
+
+    render() {
+        if (this.state.mode === 4) {
+            return (
+                <div>
+                    <div>
+                <h1>Choose your difficulty</h1>
+                <br/>
+                <div className="App">
+                <nav>
                 <div onClick={(event: React.MouseEvent<HTMLElement>) => {
                     this.clicked(0)
                 }}>Easy
@@ -273,12 +309,8 @@ class WebApp extends React.Component<any, WebAppInter> {
                 }}>Hard
                 </div>
             </nav>
-        )
-    }
-
-    Footer = () => {
-        return (
-            <footer>
+                </div>
+                <footer>
                 <h3>ЯO|OR</h3>
                 <div id="about">
                     <DisplayInfo name={bryan.name} hasGithub={bryan.hasGithub} hasLinkedIn={bryan.hasLinkedIn}
@@ -291,31 +323,13 @@ class WebApp extends React.Component<any, WebAppInter> {
                                  linkedInLink={josiah.linkedInLink} githubLink={josiah.githubLink}/>
                 </div>
             </footer>
-        );
-    }
-
-    HomePage = () => {
-        return (
-            <div>
-                <h1>Choose your difficulty</h1>
-                <br/>
-                <div className="App">
-                    <this.NavBar/>
-                </div>
-                <this.Footer/>
             </div>
-        );
-    }
-
-    handleChange = (e: any) =>{
-        this.setState({
-            userInput: parseInt(e.target.value)
-        })
-    }
-
-    QuestionForm = () => {
+                </div>
+            );
+        }
         return (
             <div>
+                <div>
                 <h1>{decodeMode(this.state.mode)}</h1>
                 <form id={"qForm"} onSubmit={(e:any)=>{
                     e.preventDefault();
@@ -341,41 +355,20 @@ class WebApp extends React.Component<any, WebAppInter> {
                         Go back
                     </div>
                 </div>
-                <this.Footer/>
-            </div>
-        );
-    }
-
-    clicked(mode: number) {
-        switch (mode) {
-            case 0:
-                this.easyMode();
-                break;
-            case 1:
-                this.mediumMode();
-                break;
-            case 2:
-                this.hardMode();
-                break;
-            default:
-                break;
-        }
-        this.setState({
-            mode: this.state.mode === 4 ? mode : 4
-        })
-    }
-
-    render() {
-        if (this.state.mode === 4) {
-            return (
-                <div>
-                    <this.HomePage/>
+                <footer>
+                <h3>ЯO|OR</h3>
+                <div id="about">
+                    <DisplayInfo name={bryan.name} hasGithub={bryan.hasGithub} hasLinkedIn={bryan.hasLinkedIn}
+                                 linkedInLink={bryan.linkedInLink} githubLink={bryan.githubLink}/>
+                    <DisplayInfo name={isaiah.name} hasGithub={isaiah.hasGithub} hasLinkedIn={isaiah.hasLinkedIn}
+                                 linkedInLink={isaiah.linkedInLink} githubLink={isaiah.githubLink}/>
+                    <DisplayInfo name={david.name} hasGithub={david.hasGithub} hasLinkedIn={david.hasLinkedIn}
+                                 linkedInLink={david.linkedInLink} githubLink={david.githubLink}/>
+                    <DisplayInfo name={josiah.name} hasGithub={josiah.hasGithub} hasLinkedIn={josiah.hasLinkedIn}
+                                 linkedInLink={josiah.linkedInLink} githubLink={josiah.githubLink}/>
                 </div>
-            );
-        }
-        return (
-            <div>
-                <this.QuestionForm/>
+            </footer>
+            </div>
             </div>
         );
     }
