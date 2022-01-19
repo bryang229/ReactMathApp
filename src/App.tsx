@@ -381,9 +381,8 @@ class WebApp extends React.Component<any, WebAppInter> {
     }
 }
 
-export function App() {
+export default function App() {
     return (
         <WebApp/>
     );
 }
-
